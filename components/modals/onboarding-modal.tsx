@@ -21,7 +21,8 @@ export default function OnboardingModal({
   const [step, setStep] = useState(1);
 
   // Privy hooks
-  const { login, authenticated, ready, connectWallet, user } = usePrivy();
+  const { login, authenticated, ready, connectWallet, user, logout } =
+    usePrivy();
   const { wallets, ready: walletsReady } = useWallets();
 
   const [formData, setFormData] = useState({
@@ -89,6 +90,16 @@ export default function OnboardingModal({
     }
   };
 
+  const handleDisconnect = async () => {
+    try {
+      console.log("[Privy] Disconnecting wallet...");
+      await logout();
+      setStep(1);
+    } catch (error) {
+      console.error("[Privy] Disconnect failed:", error);
+    }
+  };
+
   const handleModeSelection = (mode: "individual" | "enterprise") => {
     console.log("[Onboarding] Selected mode:", mode);
 
@@ -152,9 +163,17 @@ export default function OnboardingModal({
 
             {step >= 2 && connectedWallet && (
               <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
-                <div className="flex items-center gap-2 mb-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#FFD166]" />
-                  <span className="font-medium text-sm">Connected</span>
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#FFD166]" />
+                    <span className="font-medium text-sm">Connected</span>
+                  </div>
+                  <button
+                    onClick={handleDisconnect}
+                    className="text-xs text-gray-300 hover:text-white transition-colors underline"
+                  >
+                    Disconnect
+                  </button>
                 </div>
                 <p className="text-xs font-mono text-gray-300">
                   {connectedWallet.address.slice(0, 6)}...
@@ -409,7 +428,15 @@ export default function OnboardingModal({
                             : "External Wallet"}
                         </p>
                       </div>
-                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+                      <div className="flex items-center gap-2">
+                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <button
+                          onClick={handleDisconnect}
+                          className="text-xs text-gray-500 hover:text-gray-700 underline"
+                        >
+                          Change
+                        </button>
+                      </div>
                     </div>
                   )}
                 </div>
