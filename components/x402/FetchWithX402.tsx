@@ -68,7 +68,7 @@ export default function FetchWithX402({
       disabled={loading}
       className="px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-[#FFD166] text-[#1E2A35] hover:bg-[#FFD166]/90 disabled:opacity-60"
     >
-      {loading ? "Processing payment..." : label}
+      {loading ? "Processing..." : label}
     </button>
   );
 }

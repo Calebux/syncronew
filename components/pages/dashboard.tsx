@@ -42,8 +42,8 @@ export default function DashboardPage(props: any) {
 
   const searchFiltered = searchTerm
     ? subscriptions.filter((sub) =>
-        sub.name.toLowerCase().includes(searchTerm.toLowerCase()),
-      )
+      sub.name.toLowerCase().includes(searchTerm.toLowerCase()),
+    )
     : subscriptions;
 
   const emailFiltered =
@@ -93,7 +93,7 @@ export default function DashboardPage(props: any) {
           them manually. We'll help you manage and optimize your spending.
         </p>
         <button
-          onClick={() => {}}
+          onClick={() => { }}
           className="bg-[#FFD166] text-[#1E2A35] px-6 py-3 rounded-lg font-semibold hover:bg-[#FFD166]/90 transition-colors"
         >
           Add your first subscription
@@ -137,11 +137,10 @@ export default function DashboardPage(props: any) {
                 <div className="flex items-center">
                   <button
                     onClick={() => setShowProfileCard(!showProfileCard)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg border ${
-                      darkMode
-                        ? "bg-[#1E2A35] border-gray-700 text-gray-300 hover:bg-[#374151]"
-                        : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100"
-                    } transition-colors`}
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg border ${darkMode
+                      ? "bg-[#1E2A35] border-gray-700 text-gray-300 hover:bg-[#374151]"
+                      : "bg-gray-50 border-gray-300 text-gray-700 hover:bg-gray-100"
+                      } transition-colors`}
                   >
                     <Wallet className="w-4 h-4" />
                     <span className="text-sm font-mono">
@@ -153,8 +152,8 @@ export default function DashboardPage(props: any) {
                   {/* x402 payment button - reusable component */}
                   <div className="ml-4">
                     <FetchWithX402
-                      endpoint="https://api.midjourney.com/v1/x402/subscribe"
-                      label="Buy with x402"
+                      endpoint="https://docs.dapplooker.com/data-apis-for-ai/api-endpoints#multi-interval-technical-analysis"
+                      label="Fund Card"
                       maxValue={BigInt(1000000)}
                     />
                   </div>
@@ -237,38 +236,35 @@ export default function DashboardPage(props: any) {
         <div className="flex gap-2">
           <button
             onClick={() => setFilterType("all")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-              filterType === "all"
-                ? "bg-[#FFD166] text-[#1E2A35]"
-                : darkMode
-                  ? "bg-[#2D3748] text-gray-400 hover:text-white"
-                  : "bg-gray-100 text-gray-600 hover:text-gray-900"
-            }`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${filterType === "all"
+              ? "bg-[#FFD166] text-[#1E2A35]"
+              : darkMode
+                ? "bg-[#2D3748] text-gray-400 hover:text-white"
+                : "bg-gray-100 text-gray-600 hover:text-gray-900"
+              }`}
           >
             All
           </button>
           <button
             onClick={() => setFilterType("ai")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
-              filterType === "ai"
-                ? "bg-[#FFD166] text-[#1E2A35]"
-                : darkMode
-                  ? "bg-[#2D3748] text-gray-400 hover:text-white"
-                  : "bg-gray-100 text-gray-600 hover:text-gray-900"
-            }`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${filterType === "ai"
+              ? "bg-[#FFD166] text-[#1E2A35]"
+              : darkMode
+                ? "bg-[#2D3748] text-gray-400 hover:text-white"
+                : "bg-gray-100 text-gray-600 hover:text-gray-900"
+              }`}
           >
             <Sparkles className="w-4 h-4" />
             AI Only
           </button>
           <button
             onClick={() => setFilterType("other")}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
-              filterType === "other"
-                ? "bg-[#FFD166] text-[#1E2A35]"
-                : darkMode
-                  ? "bg-[#2D3748] text-gray-400 hover:text-white"
-                  : "bg-gray-100 text-gray-600 hover:text-gray-900"
-            }`}
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${filterType === "other"
+              ? "bg-[#FFD166] text-[#1E2A35]"
+              : darkMode
+                ? "bg-[#2D3748] text-gray-400 hover:text-white"
+                : "bg-gray-100 text-gray-600 hover:text-gray-900"
+              }`}
           >
             <Package className="w-4 h-4" />
             Other Services
@@ -281,22 +277,20 @@ export default function DashboardPage(props: any) {
             placeholder="Search subscriptions..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className={`px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#FFD166] ${
-              darkMode
-                ? "bg-[#2D3748] border-gray-700 text-white"
-                : "bg-white border-gray-300 text-gray-900"
-            }`}
+            className={`px-4 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#FFD166] ${darkMode
+              ? "bg-[#2D3748] border-gray-700 text-white"
+              : "bg-white border-gray-300 text-gray-900"
+              }`}
           />
 
           {emailAccountsList.length > 1 && (
             <select
               value={filterEmail}
               onChange={(e) => setFilterEmail(e.target.value)}
-              className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#FFD166] ${
-                darkMode
-                  ? "bg-[#2D3748] border-gray-700 text-white"
-                  : "bg-white border-gray-300 text-gray-900"
-              }`}
+              className={`px-3 py-2 border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#FFD166] ${darkMode
+                ? "bg-[#2D3748] border-gray-700 text-white"
+                : "bg-white border-gray-300 text-gray-900"
+                }`}
             >
               {emailAccountsList.map((email) => (
                 <option key={email} value={email}>
@@ -495,7 +489,7 @@ export default function DashboardPage(props: any) {
                               Last used:{" "}
                               {Math.floor(
                                 (new Date() - sub.lastUsedAt) /
-                                  (1000 * 60 * 60 * 24),
+                                (1000 * 60 * 60 * 24),
                               )}{" "}
                               days ago
                             </span>
@@ -528,7 +522,7 @@ export default function DashboardPage(props: any) {
                             Trial ends in{" "}
                             {Math.ceil(
                               (sub.trialEndsAt - new Date()) /
-                                (1000 * 60 * 60 * 24),
+                              (1000 * 60 * 60 * 24),
                             )}{" "}
                             days - ${sub.priceAfterTrial}/month after
                           </p>
@@ -586,19 +580,17 @@ export default function DashboardPage(props: any) {
                             ? onRenew(sub)
                             : onManage(sub)
                         }
-                        className={`w-full py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                          hoveredCard === sub.id
-                            ? "opacity-100 translate-y-0"
-                            : "opacity-0 translate-y-2"
-                        } ${
-                          sub.status === "expiring"
+                        className={`w-full py-2 rounded-lg text-sm font-medium transition-all duration-200 ${hoveredCard === sub.id
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-2"
+                          } ${sub.status === "expiring"
                             ? darkMode
                               ? "bg-[#E86A33]/20 text-[#E86A33] hover:bg-[#E86A33]/30"
                               : "bg-orange-50 text-orange-700 hover:bg-orange-100"
                             : darkMode
                               ? "bg-[#374151] text-gray-300 hover:bg-[#4B5563]"
                               : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                        }`}
+                          }`}
                       >
                         {sub.status === "expiring"
                           ? "Renew now"
