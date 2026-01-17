@@ -1,54 +1,37 @@
-# Self-Custodial Subscription Manager
+## Self-Custodial Subscription Manager (Built on Stellar)
 
-A decentralized subscription management platform that enables users to control recurring payments directly from their own wallet. Users can track, approve, pause, and fund subscriptions like Netflix, YouTube, Claude, Midjourney, and more, without giving control of their payment method to any centralized service. Payments are executed via a crypto-card-funded agent to handle Web2 billing.
-
----
+A decentralized subscription management platform built on the Stellar blockchain that enables users to control recurring payments directly from their own wallet. Users can track, approve, pause, and fund subscriptions such as Netflix, YouTube, Claude, Midjourney, and more—without handing over control of their payment method to any centralized service. Payments are executed via a crypto-card–funded agent to handle Web2 billing.
 
 ## ✨ Key Features
 
-- Full self-custody: users maintain complete control of funds
-- Unified dashboard for managing all subscriptions
-- AI-powered agent to automate payment approvals and execution
-- Crypto-to-card settlement layer for legacy services
-- Price-change protection with spending caps
-- Push notifications for approvals and reminders
-- Manual subscription entry for unsupported platforms
+Full self-custody: Users retain complete control of funds via Stellar wallets
 
----
+Unified dashboard: Manage all subscriptions in one place
 
-## 🧠 High-Level Workflow
+AI-powered agent: Automates approval requests and payment execution
 
-1. User connects a Web3 wallet.
-2. User adds subscriptions (auto-detected or manually entered).
-3. User funds a Subscription Vault with USDC or stablecoins.
-4. When a bill is due:
-   - System sends approval request
-   - If approved, the agent loads exact funds to a crypto card and pays the provider
-   - Or uses x402 to complete an on-chain settlement flow
-5. Dashboard updates balance, renewal date, and spend insights.
+Crypto-to-card settlement layer: Bridges Stellar assets to legacy Web2 services
 
----
+Price-change protection: Spending caps and approval thresholds enforced on-chain
 
-## 🧱 Architecture
+Push notifications: Real-time approvals, renewals, and balance alerts
 
-```txt
-User Wallet (Self-Custody)
-    |
-    | connect / sign / approve
-    v
-Subscription Vault Smart Contract
-    |
-    | transfer on approval
-    v
-Payment Agent (x402-enabled)
-    |
-    | load "exact amount"
-    v
-Crypto Card (e.g., Ready)
-    |
-    | standard payment rails (Visa/Mastercard)
-    v
-Service Provider (Netflix, YouTube, Claude, etc.)
-```
+Manual subscription entry: Support for platforms without native integrations
 
+## High-Level Workflow
 
+User connects a Stellar-compatible Web3 wallet.
+
+User adds subscriptions (auto-detected or manually entered).
+
+User funds a Subscription Vault with USDC or other Stellar-native stable assets.
+
+When a bill is due:
+
+The system sends an approval request.
+
+Upon approval, the agent loads the exact amount onto a crypto card and pays the provider, or
+
+Executes an on-chain settlement using x402-compatible payment flows where supported.
+
+The dashboard updates balances, renewal dates, and spending insights in real time.
